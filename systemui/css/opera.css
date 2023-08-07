@@ -1,0 +1,221 @@
+.opera #titlebar {
+height: 38px;
+}
+
+.opera #titlebar, .opera #menusleftbar, .opera #navbar, html {
+background-color: var(--nord4);  
+}
+
+.opera #menusleftbar {
+width: 58px;position: initial;
+display: flex;
+align-items: stretch;
+border: none !important;
+}
+
+.opera .menu-items{
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+align-items: center;
+justify-content: space-between;
+}
+
+.opera #menu-items {
+padding: 5px 4px;
+background: var(--nord2);
+margin: 5px 5px;
+padding-top: 2px;
+border-radius: 7px;
+text-align: center;
+height: auto;
+min-height: -webkit-fill-available;
+
+z-index: 99999999999 !important;
+position: fixed;
+left: 0;
+top: 0;
+bottom: 0;
+width: 40px;
+}
+
+.opera .ntabsedits, .opera #plugingoreas, .opera .newBookmarksAlss {
+padding-left: 58px;
+}
+
+.opera #navbar {
+display: block;
+box-shadow: none;
+padding-top: 0;
+}
+
+.opera #navbar {
+top: 7px;top: 6px;
+}
+
+.opera.compact #navbar, .compact.opera #navbar {
+top: 44px;top: 50px;
+}
+
+.opera #titlebar {
+box-shadow: none;
+}
+
+.opera #titlebar {
+height: 38px;
+top: 47px; top: 49px;
+z-index: -1;
+}
+
+.opera.compact #titlebar, .compact.opera #titlebar {
+height: 38px; top: 0px; z-index: 1;     top: 4px;
+}
+
+
+.opera .newBookmarksAlss{
+top: 84px; top: 89px;
+display: flex;
+box-shadow: none;
+border-radius: 8px;
+background: transparent;
+}
+.opera .newBookmarksAlss .tab {
+height: 25px; background: var(--nord2); margin: 6px 0;     min-width: auto;
+}
+.opera .newBookmarksAlss .tab:hover{
+background:var(--darker-1); box-shadow: none;
+}
+.opera .tab-boomarks:hover {
+background:transparent; box-shadow: none;
+}
+.opera .tab-boomarks {margin-right: 3px;}
+
+
+
+.opera.compact .newBookmarksAlss, .compact.opera .newBookmarksAlss{
+top: 84px; top: 89px;
+display: flex;
+box-shadow: none;
+border-radius: 8px;
+background: transparent;
+}
+.opera.compact .newBookmarksAlss .tab, .compact.opera .newBookmarksAlss .tab {
+height: 25px; background: var(--nord2); margin: 6px 0;
+}
+.opera.compact .newBookmarksAlss .tab:hover, .compact.opera .newBookmarksAlss .tab :hover {
+background:var(--darker-1); box-shadow: none;
+}
+.opera.compact .tab-boomarks:hover, .compact.opera .tab-boomarks:hover {
+background:transparent; box-shadow: none;
+}
+
+.opera.compact .tab-boomarks, .compact.opera .tab-boomarks {margin-right: 3px;}
+
+
+.opera.compact #nav-center, .compact.opera #nav-center {
+background: rgb(147 147 147 / 5%);
+}
+.opera.compact #nav-center:hover, .compact.opera #nav-center:hover {
+background: var(--nord4);
+}
+
+.opera #plugingoreas {
+padding-left: 10px;
+}
+
+.opera.compact .nav-group-right, .compact.opera .nav-group-right {
+padding-right: 10px;
+}
+
+.opera .ntabsedits{
+padding-left: 0px;
+}
+.opera .newopcls{
+display: flex;
+background: var(--nord2);
+border-radius: 7px;
+margin: 0 18px;
+margin-left: 48px;
+padding: 5px 0;
+height: 31px !important;
+width: auto;
+}
+
+.opera .tab {
+height: 33px;
+margin-top: 4px;
+width: 100% !important;
+display: flex;
+flex-flow: row nowrap;
+min-width: 100px;
+max-width: 130px;
+justify-content: flex-start;
+box-shadow: 5px 0px 15px rgb(0 0 0 / 11%);
+box-shadow: 5px -5px 15px rgb(0 0 0 / 11%);
+border-right: none;
+border-radius: 5px;
+}
+.opera .tab.selected {
+box-shadow: 0px 1px 5px 1px rgb(0 0 0 / 10%);
+}
+.opera .tab:hover {
+background: var(--nord2);
+border-radius: 5px;
+}
+.default-opera .opera .tab:hover {
+background: var(--darker-1);
+border-radius: 5px;
+}
+.opera .tab.selected:hover {
+background: var(--darker-1);
+}
+.opera .tab-icon {
+margin-right: 0;
+max-width: 15px;
+max-height: 15px;
+}
+.opera .tab-label {
+padding: 0 8px;
+}
+.opera .tab-close {
+display: none;
+}
+.opera .tab:hover .tab-close{display: block;}
+
+.opera #new-tab, .opera #new-tab-group {
+margin-top: 4px;
+}
+
+.opera #new-tab, .opera #new-tab-group {border-radius: 50px !important;}
+.opera #new-tab > svg, .opera #new-tab-group > svg {
+/*background: var(--nord2);*/
+background: var(--darker-1);
+border-radius: 50px !important;
+}
+.opera #window-controls { top: -44px; top: -50px; }
+
+.opera #menu-items button {
+background: var(--nord4);
+border-radius: 5px !important;
+padding: 5px 5px 2px 5px !important;
+width: auto !important;
+height: auto !important;
+margin-bottom: 5px !important;
+margin-top: 5px !important;
+}
+
+.opera .ntabsedits {margin-top:-1px;}
+.compact.opera #tabs, .opera.compact #tabs {
+margin-top:-3px;
+}
+
+.opera .gropusdefaults {height: 33px;}
+
+.opera .gropusdefaults .gropusdefaults {height: 29px !important;  margin-bottom: 1px !important;}
+.opera .gropusdefaults .gropusdefaults .tab{   height: 30px !important;}
+
+.opera .gropusdefaults .gropusdefaults .gropusdefaults {height: 25px !important;  margin-bottom: 1px !important;}
+.opera .gropusdefaults .gropusdefaults .gropusdefaults .tab{   height: 26px !important;}
+
+.opera .gropusdefaults .gropusdefaults .gropusdefaults .gropusdefaults {height: 21px !important;  margin-bottom: 1px !important;}
+.opera .gropusdefaults .gropusdefaults .gropusdefaults .gropusdefaults .tab{ height: 21px !important;}

@@ -1,0 +1,122 @@
+{
+    "name": "BLOCK",
+    "productName": "BLOCK",
+    "version": "1.0.1",
+    "description": "BLOCK Web Browser by Mert Çetin for Me Force",
+    "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cetinmert/block.git"
+    },
+    "keywords": [
+        "browser",
+        "web",
+        "security",
+        "privacy",
+        "internet"
+    ],
+    "build": {
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "username",
+                "repo": "reponame",
+                "vPrefixedTagName": true,
+                "releaseType": "draft",
+                "publishAutoUpdate": true,
+                "token": "ghp_0000000000000000000000"
+            }
+        ],
+        "appId": "io.block.cetinmert-win",
+        "productName": "BLOCK",
+        "directories": {
+            "buildResources": "build"
+        },
+        "files": [
+            "**/*",
+            "build/icons/256x256.png"
+        ],
+        "electronDownload": {
+            "mirror": "https://github.com/castlabs/electron-releases/releases/download/v",
+            "version": "25.3.1+wvcus"
+        },
+        "appx": {
+            "identityName": "0000MeForce.IFOXBrowser-WEB3",
+            "publisher": "CN=xxxx-xxx-xxxx-xxxx-xxxxxxxx",
+            "publisherDisplayName": "Me Force",
+            "applicationId": "IFOXBrowserWEB3",
+            "displayName": "BLOCK Browser - WEB3"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "appx",
+                "zip"
+            ],
+            "icon": "build/icons/256x256.png"
+        },
+        "mac": {
+            "category": "productivity",
+            "target": [
+                "dmg"
+            ],
+            "icon": "build/icons/icon.icns"
+        },
+        "linux": {
+            "category": "Network",
+            "target": [
+                "AppImage",
+                "deb"
+            ]
+        },
+        "nsis": {
+            "oneClick": "false",
+            "allowToChangeInstallationDirectory": "true",
+            "perMachine": "true"
+        },
+        "fileAssociations": [
+            {
+                "name": "BLOCK HTML Document",
+                "description": "BLOCK",
+                "ext": "html",
+                "icon": "build/icons/icon.ico"
+            },
+            {
+                "name": "BLOCK WebP Image",
+                "description": "BLOCK WebP Image",
+                "ext": "webp",
+                "icon": "build/icons/icon.ico"
+            }
+        ]
+    },
+    "scripts": {
+        "start": "electron .",
+        "build-linux": "electron-builder --linux --publish never",
+        "build-win": "electron-builder --win --publish never",
+        "build-mac": "electron-builder --mac --publish never"
+    },
+    "author": "Me Force",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "github:castlabs/electron-releases#v25.3.1+wvcus",
+        "electron-builder": "^23.6.0",
+        "electron-devtools-installer": "^3.2.0"
+    },
+    "dependencies": {
+        "@electron/remote": "^2.0.10",
+        "cors": "^2.8.5",
+        "cross-fetch": "^3.0.4",
+        "electron-chrome-extensions": "^3.10.1",
+        "electron-context-menu": "^3.6.1",
+        "electron-store": "^8.1.0",
+        "electron-updater": "^5.3.0",
+        "express": "^4.17.1",
+        "jquery": "^3.5.1",
+        "jszip": "^3.10.1",
+        "npm": "^7.0.12",
+        "readline-sync": "^1.4.10",
+        "sortablejs": "^1.10.2",
+        "uuid": "^8.3.1",
+        "v8-compile-cache": "^2.3.0"
+    }
+}

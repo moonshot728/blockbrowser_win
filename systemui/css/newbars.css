@@ -1,0 +1,78 @@
+.compact #navbar {
+top: 39px;
+/*background: white;*/
+z-index: 9;
+ box-shadow: inset 0px -1px 0px 0px var(--outline); 
+}
+
+.compact #titlebar { box-shadow: none; }
+
+.compact #nav-center {
+border-radius: 5px;
+padding: 0 5px;
+background: rgb(255 255 255 / 5%);
+margin: 0;
+}
+
+.compact #nav-center > button {
+border-radius: 50px;    margin: 2px 0px;
+}
+
+.compact .nav-group-right {
+padding-right: 17px;
+}
+
+.compact #tabs {
+max-width: 100%;
+margin-right: 120px;
+}
+
+.compact #titlebar {
+top: 0;
+}
+
+.compact .tab.selected {
+/*background: white;*/
+box-shadow: none;
+/*position: initial;*/
+}
+
+.compact .tab {
+border-right: solid 1px var(--nord2);
+}
+
+.compact #window-controls {
+position: absolute;
+top: -39px;
+height: inherit;
+}
+
+.compact .newBookmarksAlss { box-shadow: inset 0px -1px 0px 0px var(--outline); /*background: white;*/ position: fixed;top: 79px;z-index: 9999;display: flex;padding: 0px 5px;left: 0;right: 0;/* height: 19px; */font-size: 13px; }
+.compact .newBookmarksAlss .tab img { width: 16px; height: 16px; padding-right: 8px; }
+.compact .newBookmarksAlss .tab .sc-booktextt { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.compact .newBookmarksAlss .tab {
+width: auto;
+height: 30px;
+display: flex;
+align-items: center;
+flex-shrink: 1;
+min-width: 50px;
+padding: 3px 15px;
+position: relative;
+max-width: 110px;
+cursor: pointer;
+}
+
+.compact .tab-boomarks{
+display: flex;
+align-items: center;
+flex-shrink: 1;
+min-width: 50px;
+position: relative;
+}
+
+.compact .tab-boomarks:hover { /*background: whitesmoke;*/ }
+
+.compact .tab-book-mores { min-width: auto; }
+.compact .tab-book-mores .tab { min-width: auto; }
+.compact .tab-book-mores .tab img { padding-right: 0; }

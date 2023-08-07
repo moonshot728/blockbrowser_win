@@ -1,0 +1,44 @@
+/* NORD */
+
+:root {
+/**/
+--nord0: #fbfbfb !important;
+
+
+
+--nord1: #3b4252 !important;
+
+/**/
+--nord2: #292929 !important;
+
+--nord3: #4c566a !important;
+
+
+
+/**/
+--nord4: #070707 !important;
+--nord5: #353535 !important;
+--nord6: #202124 !important;
+
+
+--nord7: #8fbcbb !important;
+--nord8: #88c0d0 !important;
+--nord9: #81a1c1 !important;
+--nord10: #5e81ac !important;
+--nord11: #bf616a !important;
+--nord12: #d08770 !important;
+--nord13: #ebcb8b !important;
+--nord14: #a3be8c !important;
+--nord15: #b48ead !important;
+}
+
+
+.tab-close {
+filter: brightness(0) invert(1);
+}
+
+#back, #forward, #refresh, #home, #site-info img, #bookmark, #shield, #menu, #system_update, #new-tab, #new-tab-group, #window-controls svg, #BookMarks img {
+filter: brightness(0) invert(1);
+}
+
+.serachkeyins .insearchs, .xsvg-iconsss, #vpnimagevpn, .wihdarkisleft  {filter: brightness(0) invert(1);}
