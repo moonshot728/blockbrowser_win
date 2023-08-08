@@ -97,7 +97,7 @@ exports.init = function (doc) { document = doc }
 exports.loadStart = function(view, extensions) {
 let tone = window.theme === 'dark' ? 'dark' : 'light';
 view.tab.setIcon('systemui/images/loading-' + tone + '.gif');
-view.tab.setTitle('Yükleniyor...');
+view.tab.setTitle('Loading...');
 document.getElementById('bookmark').style.visibility = 'hidden';
 document.getElementById('refresh').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"> <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/> </svg>';
 }

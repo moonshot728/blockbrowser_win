@@ -1,130 +1,254 @@
 <!DOCTYPE html>
 <html lang="tr" dir="ltr" class="default">
-<head>
-<meta charset="utf-8">
-<title>BLOCK</title>
-<script> window.$ = window.jQuery = require('jquery'); </script>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta http-equiv="x-ua-compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <title>BLOCK</title>
+    <script>
+      window.$ = window.jQuery = require("jquery");
+    </script>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-<link rel="stylesheet" href="systemui/css/global.css">
-<link rel="stylesheet" href="systemui/css/base.css">
-<link rel="stylesheet" href="systemui/css/titlebar.css">
-<link rel="stylesheet" href="systemui/css/newbars.css">
-<link rel="stylesheet" href="systemui/css/themes/default.css">
-<link rel="stylesheet" href="systemui/css/opera.css">
-<link rel="stylesheet" href="systemui/css/leftbarmenu.css">
+    <link rel="stylesheet" href="systemui/css/global.css" />
+    <link rel="stylesheet" href="systemui/css/base.css" />
+    <link rel="stylesheet" href="systemui/css/titlebar.css" />
+    <link rel="stylesheet" href="systemui/css/newbars.css" />
+    <link rel="stylesheet" href="systemui/css/themes/default.css" />
+    <link rel="stylesheet" href="systemui/css/opera.css" />
+    <link rel="stylesheet" href="systemui/css/leftbarmenu.css" />
+  </head>
+  <body>
+    <div id="notifications"></div>
 
-</head>
-<body>
-
-<div id="notifications"></div>
-
-<nav id="navbar" class="navbarclss">
-<div class="newopcls" id="newopclss">
-<div class="nav-group" id="plugingoreas">
-<button class="nextbacks" id="back"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
-<path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
-</svg></button>
-<button class="nextbacks" id="forward"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-<path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-</svg></button>
-<button id="refresh"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/><path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/></svg></button>
-<button id="home" style="display: none;">
-<!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+    <nav id="navbar" class="navbarclss">
+      <div class="newopcls" id="newopclss">
+        <div class="nav-group" id="plugingoreas">
+          <button class="nextbacks" id="back">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-left"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"
+              />
+            </svg>
+          </button>
+          <button class="nextbacks" id="forward">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-caret-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"
+              />
+            </svg>
+          </button>
+          <button id="refresh">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-clockwise"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+              />
+              <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+              />
+            </svg>
+          </button>
+          <button id="home" style="display: none">
+            <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
 <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
 </svg>-->
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid" viewBox="0 0 16 16">
-<path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
-</svg>
-</button>
-</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-grid"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
+              />
+            </svg>
+          </button>
+        </div>
 
-<div id="drag-region"></div>
+        <div id="drag-region"></div>
 
-<div id="nav-center">
-<div class="nav-group nav-group-right" id="extensionsMod" style="padding-right: 0px;"></div>
+        <div id="nav-center">
+          <div
+            class="nav-group nav-group-right"
+            id="extensionsMod"
+            style="padding-right: 0px"
+          ></div>
 
-<button id="site-info" class="re-site-info" onclick="message('site-info')">
-<svg class="nosll" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-lock" viewBox="0 0 16 16">
-<path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
-<path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
-</svg>
-</button>
+          <button
+            id="site-info"
+            class="re-site-info"
+            onclick="message('site-info')"
+          >
+            <svg
+              class="nosll"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-shield-lock"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"
+              />
+              <path
+                d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"
+              />
+            </svg>
+          </button>
 
-<input id="url" spellcheck="false" autocomplete="false" autofocus type="text" placeholder="Ara BLOCK yada Link">
+          <input
+            id="url"
+            spellcheck="false"
+            autocomplete="false"
+            autofocus
+            type="text"
+            placeholder="Ara BLOCK yada Link"
+          />
 
-<button id="bookmark">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-</svg>
-</button>
-</div>
+          <button id="bookmark">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-star"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"
+              />
+            </svg>
+          </button>
+        </div>
 
-<div id="drag-region"></div>
+        <div id="drag-region"></div>
 
-<browser-action-list id="actions"></browser-action-list>
+        <browser-action-list id="actions"></browser-action-list>
 
-<div class="nav-group nav-group-right"> 
-<button id="menu"><img src="systemui/images/menu.svg"></button>
-<button id="system_update"><img src="systemui/images/system_update_alt_black.svg"></button>
-</div>
+        <div class="nav-group nav-group-right">
+          <button id="menu"><img src="systemui/images/menu.svg" /></button>
+          <button id="system_update">
+            <img src="systemui/images/system_update_alt_black.svg" />
+          </button>
+        </div>
 
-<div id="window-controls">
-<div class="button" id="min-button">
-<svg version="1.1" viewBox="0 0 24 24">
-<path d="M20,19H4v-2h16V19z"/>
-</svg>
-<!--<img src="systemui/images/minimize.svg">-->
-</div>
-<div class="button" id="max-button">
-<svg version="1.1" viewBox="0 0 24 24">
-<path d="M18.8,4H5.2C4.6,4,4,4.6,4,5.2v13.5C4,19.4,4.6,20,5.2,20h13.5c0.7,0,1.2-0.6,1.2-1.2V5.2C20,4.6,19.4,4,18.8,4
-z M18,18H6V6h12V18z"/>
-</svg>
-<!--<img src="systemui/images/fullscreen.svg">-->
-</div>
-<div class="button" id="restore-button">
-<svg version="1.1" viewBox="0 0 24 24">
-<path d="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z"/>
-</svg>
-<!--<img src="systemui/images/restore.svg">-->
-</div>
-<div class="button" id="close-button">
-<svg version="1.1" viewBox="0 0 24 24">
-<path d="M20,5.6L18.4,4L12,10.4L5.6,4L4,5.6l6.4,6.4L4,18.4L5.6,20l6.4-6.4l6.4,6.4l1.6-1.6L13.6,12L20,5.6z"/>
-</svg>
-<!--<img src="systemui/images/close.svg">-->
-</div>
-</div>
+        <div id="window-controls">
+          <div class="button" id="min-button">
+            <svg version="1.1" viewBox="0 0 24 24">
+              <path d="M20,19H4v-2h16V19z" />
+            </svg>
+            <!--<img src="systemui/images/minimize.svg">-->
+          </div>
+          <div class="button" id="max-button">
+            <svg version="1.1" viewBox="0 0 24 24">
+              <path
+                d="M18.8,4H5.2C4.6,4,4,4.6,4,5.2v13.5C4,19.4,4.6,20,5.2,20h13.5c0.7,0,1.2-0.6,1.2-1.2V5.2C20,4.6,19.4,4,18.8,4
+z M18,18H6V6h12V18z"
+              />
+            </svg>
+            <!--<img src="systemui/images/fullscreen.svg">-->
+          </div>
+          <div class="button" id="restore-button">
+            <svg version="1.1" viewBox="0 0 24 24">
+              <path
+                d="M4,8H8V4H20V16H16V20H4V8M16,8V14H18V6H10V8H16M6,12V18H14V12H6Z"
+              />
+            </svg>
+            <!--<img src="systemui/images/restore.svg">-->
+          </div>
+          <div class="button" id="close-button">
+            <svg version="1.1" viewBox="0 0 24 24">
+              <path
+                d="M20,5.6L18.4,4L12,10.4L5.6,4L4,5.6l6.4,6.4L4,18.4L5.6,20l6.4-6.4l6.4,6.4l1.6-1.6L13.6,12L20,5.6z"
+              />
+            </svg>
+            <!--<img src="systemui/images/close.svg">-->
+          </div>
+        </div>
+      </div>
+    </nav>
 
-</div>
-</nav>
+    <header id="titlebar" class="tabcontainers">
+      <div id="tabs" class="ntabsedits">
+        <div style="display: flex; align-items: center" id="npin-tab"></div>
 
-
-<header id="titlebar" class="tabcontainers">
-<div id="tabs" class="ntabsedits">
-<div style="display: flex;align-items: center;" id="npin-tab"></div>
-
-
-<div id="tabsgrops" class="xtab tab-drag gropusdefaults grupone"><div id="tabsgropsbtn" class="tabsgropsbtn"></div>
-<!--
+        <div id="tabsgrops" class="xtab tab-drag gropusdefaults grupone">
+          <div id="tabsgropsbtn" class="tabsgropsbtn"></div>
+          <!--
 <div id="new-tab-grup"><svg class="newtabicons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></div>
 -->
-</div>
-<div id="tabsgrops2" class="xtab tab-drag gropusdefaults gruptwo" style="border-color: #8bc34ae1;"><div id="tabsgrops2btn" class="tabsgropsbtn"></div></div>
-<div id="tabsgrops3" class="xtab tab-drag gropusdefaults grupthree" style="border-color: #03a8f4e5;"><div id="tabsgrops3btn" class="tabsgropsbtn"></div></div>
-<div id="tabsgrops4" class="xtab tab-drag gropusdefaults grupfour" style="border-color: rgb(255 87 34 / 83%);"><div id="tabsgrops4btn" class="tabsgropsbtn"></div></div>
+        </div>
+        <div
+          id="tabsgrops2"
+          class="xtab tab-drag gropusdefaults gruptwo"
+          style="border-color: #8bc34ae1"
+        >
+          <div id="tabsgrops2btn" class="tabsgropsbtn"></div>
+        </div>
+        <div
+          id="tabsgrops3"
+          class="xtab tab-drag gropusdefaults grupthree"
+          style="border-color: #03a8f4e5"
+        >
+          <div id="tabsgrops3btn" class="tabsgropsbtn"></div>
+        </div>
+        <div
+          id="tabsgrops4"
+          class="xtab tab-drag gropusdefaults grupfour"
+          style="border-color: rgb(255 87 34 / 83%)"
+        >
+          <div id="tabsgrops4btn" class="tabsgropsbtn"></div>
+        </div>
 
-<div id="new-tab">
-<svg class="newtabicons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-</svg>
-</div>
+        <div id="new-tab">
+          <svg
+            class="newtabicons"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+        </div>
 
-<!--
+        <!--
 <div id="new-tab-group">
 <svg class="newtabicons" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection" viewBox="0 0 16 16">
 <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
@@ -132,155 +256,199 @@ z M18,18H6V6h12V18z"/>
 </div>
 -->
 
-<div id="drag-region" style="width: 50px;height: 30px;"></div>
-</div>
-</header>
+        <div id="drag-region" style="width: 50px; height: 30px"></div>
+      </div>
+    </header>
 
-<div id="bookmarksAlls" class="newBookmarksAlss" style="display: none;"></div>
-<button style="display: none; height: 0px;" id="newWindowsOpens"></button>
-<button style="display: none; height: 0px;" id="newIncognitoWindowsOpens"></button>
+    <div
+      id="bookmarksAlls"
+      class="newBookmarksAlss"
+      style="display: none"
+    ></div>
+    <button style="display: none; height: 0px" id="newWindowsOpens"></button>
+    <button
+      style="display: none; height: 0px"
+      id="newIncognitoWindowsOpens"
+    ></button>
 
+    <div id="menusleftbar" class="moduleMenuPopps" style="display: none">
+      <div class="menu-items" id="menu-items">
+        <div id="sidebarTops">
+          <button
+            style="background: transparent; margin-top: 9px !important"
+            id="menu1"
+            class="menu1 i18n"
+            title="BLOCK"
+            onclick="gosite('block://settings')"
+          >
+            <img
+              style="border-radius: initial"
+              class="real-iconss wihdarkisleft"
+              src="systemui/css/images/iconleftbar.png"
+            />
+          </button>
+        </div>
 
-<div id="menusleftbar" class="moduleMenuPopps" style="display: none;">
-<div class="menu-items" id="menu-items">
+        <div id="sidebarAdds"></div>
 
-<div id="sidebarTops"> 
-<button style="background: transparent; margin-top: 9px !important;" id="menu1" class="menu1 i18n" title="BLOCK" onclick="gosite('block://settings')">
-<img style="border-radius: initial;" class="real-iconss wihdarkisleft" src="systemui/css/images/iconleftbar.png">
-</button>
-<button style="background: transparent;" id="menu1" class="menu1 i18n" title="BLOCK" onclick="gosite('block://bird')">
-<img class="real-iconss wihdarkisleft" src="systemui/images/bird-logo.png">
-</button>
-</div>
+        <!--<hr class="speact" id="speact">-->
 
-<div id="sidebarAdds"></div>
+        <div id="sidebarBottoms">
+          <button
+            style="background: transparent"
+            id="menu4"
+            class="menu4 i18n"
+            title="İndirilenler"
+            onclick="gosite('block://downloads')"
+          >
+            <img
+              class="xsvg-iconsss"
+              src="systemui/images/menu/indirilenler.svg"
+            />
+          </button>
 
-<!--<hr class="speact" id="speact">-->
+          <button
+            style="background: transparent"
+            id="menu4"
+            class="menu4 i18n"
+            title="Geçmiş"
+            onclick="gosite('block://history')"
+          >
+            <img class="xsvg-iconsss" src="systemui/images/menu/gecmis.svg" />
+          </button>
 
-<div id="sidebarBottoms">
-<button style="background: transparent;" id="menu4" class="menu4 i18n" title="İndirilenler" onclick="gosite('block://downloads')">
-<img class="xsvg-iconsss" src="systemui/images/menu/indirilenler.svg">
-</button>
+          <button
+            style="background: transparent; margin-bottom: 25px"
+            id="menu6"
+            class="menu6 i18n"
+            title="Kaydedilenler"
+            onclick="gosite('block://bookmarks')"
+          >
+            <img
+              class="xsvg-iconsss"
+              src="systemui/images/menu/kaydedilenler.svg"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let renderer = require("./renderer.js");
+    let titlebar = require("./systemui/js/titlebar.js");
+    titlebar.setData(
+      renderer.getTabCount,
+      renderer.showAlert,
+      renderer.getTabCountCacheNum
+    );
 
-<button style="background: transparent;" id="menu4" class="menu4 i18n" title="Geçmiş" onclick="gosite('block://history')">
-<img class="xsvg-iconsss" src="systemui/images/menu/gecmis.svg">
-</button>
+    let { ipcRenderer, remote } = require("electron");
 
-<button style="background: transparent;margin-bottom: 25px;" id="menu6" class="menu6 i18n" title="Kaydedilenler" onclick="gosite('block://bookmarks')">
-<img class="xsvg-iconsss" src="systemui/images/menu/kaydedilenler.svg">
-</button>
-</div>
+    ipcRenderer.on("newTab", (e, url) => {
+      ipcRenderer.send("openPage", url);
+    });
 
-</div>
-</div>
-</body>
-<script>
-let renderer = require('./renderer.js');
-let titlebar = require('./systemui/js/titlebar.js');
-titlebar.setData(renderer.getTabCount, renderer.showAlert, renderer.getTabCountCacheNum);
+    function message(txt) {
+      ipcRenderer.send("siteInfo", txt);
+    }
+    function gosite(txt) {
+      ipcRenderer.send("openPage", txt);
+    }
 
-let { ipcRenderer, remote } = require('electron');
+    ipcRenderer.on("incognitotab", () => {
+      if (!document.querySelector('link[href="systemui/css/incognitotab.css"]'))
+        document.head.innerHTML +=
+          '<link rel="stylesheet" href="systemui/css/incognitotab.css">';
+      ipcRenderer.removeAllListeners("incognitotab");
+    });
 
+    ipcRenderer.on("update_available", () => {
+      ipcRenderer.removeAllListeners("update_available");
+      document.getElementById("system_update").style.display = "flex";
+    });
 
-ipcRenderer.on('newTab', (e,url) => { 
-ipcRenderer.send('openPage', url);
-});
-
-function message(txt) { ipcRenderer.send('siteInfo', txt); }
-function gosite(txt) { ipcRenderer.send('openPage', txt); }
-
-ipcRenderer.on('incognitotab', () => {
-if(!document.querySelector('link[href="systemui/css/incognitotab.css"]')) document.head.innerHTML += '<link rel="stylesheet" href="systemui/css/incognitotab.css">';
-ipcRenderer.removeAllListeners('incognitotab');
-});
-
-ipcRenderer.on('update_available', () => {
-ipcRenderer.removeAllListeners('update_available');
-document.getElementById("system_update").style.display = "flex";
-});
-
-/*
+    /*
 ipcRenderer.on('update_downloaded', () => {
 ipcRenderer.removeAllListeners('update_downloaded');
 alert('Update Downloaded. It will be installed on restart. Restart now?');
 });
 */
 
-/* Ayarlar Genel Eklentileri Aktif Et -> KEY Home*/
-ipcRenderer.send('settingsViewStatusSet', 'home');
+    /* Ayarlar Genel Eklentileri Aktif Et -> KEY Home*/
+    ipcRenderer.send("settingsViewStatusSet", "home");
 
-/* Bookmarks Kaydedilenleri Ekranda Göster */
-ipcRenderer.send('bookmarksonaktif');
-function openLoadUrlGoBooks(url) { ipcRenderer.send('openLoadUrlGoBooks', url); }
+    /* Bookmarks Kaydedilenleri Ekranda Göster */
+    ipcRenderer.send("bookmarksonaktif");
+    function openLoadUrlGoBooks(url) {
+      ipcRenderer.send("openLoadUrlGoBooks", url);
+    }
 
-document.getElementById('newWindowsOpens').addEventListener('click', async () => {
-ipcRenderer.send('newWindowsOpens');
-ipcRenderer.removeAllListeners('newWindowsOpens');
-});
+    document
+      .getElementById("newWindowsOpens")
+      .addEventListener("click", async () => {
+        ipcRenderer.send("newWindowsOpens");
+        ipcRenderer.removeAllListeners("newWindowsOpens");
+      });
 
-document.getElementById('newIncognitoWindowsOpens').addEventListener('click', async () => {
-ipcRenderer.send('newIncognitoWindowsOpens');
-ipcRenderer.removeAllListeners('newIncognitoWindowsOpens');
-});
+    document
+      .getElementById("newIncognitoWindowsOpens")
+      .addEventListener("click", async () => {
+        ipcRenderer.send("newIncognitoWindowsOpens");
+        ipcRenderer.removeAllListeners("newIncognitoWindowsOpens");
+      });
 
+    var sidebarlefts = renderer.sidebarlefts();
 
+    let anaIcerikData = document.getElementById("sidebarAdds");
 
-var sidebarlefts = renderer.sidebarlefts();
+    Object.values(sidebarlefts).forEach((rCitems, i) => {
+      if (rCitems.name == "spector") {
+        var itemElHr = document.createElement("hr");
+        itemElHr.id = "speact";
+        itemElHr.className = "speact";
+        anaIcerikData.appendChild(itemElHr);
+      } else {
+        var itemElTwos = document.createElement("button");
+        itemElTwos.title = rCitems.name;
+        itemElTwos.id = rCitems.name.replace(/\s/g, "");
+        itemElTwos.className = "menu3 i18n draggledsidebar";
 
-let anaIcerikData = document.getElementById('sidebarAdds');
+        itemElTwos.onclick = async (e) => {
+          if (rCitems.url) {
+            renderer.setDataSideBar(rCitems);
+          }
+        };
 
-Object.values(sidebarlefts).forEach((rCitems, i) => {  
-if(rCitems.name == 'spector'){
-var itemElHr = document.createElement('hr');
-itemElHr.id = "speact";
-itemElHr.className = "speact";
-anaIcerikData.appendChild(itemElHr);
-} else {
+        if (rCitems.uisytem) {
+          itemElTwos.innerHTML = `${rCitems.logo}`.trim();
+          if (rCitems.subitem) {
+            itemElTwos.className += itemElTwos.className + " subitems";
+          }
+        } else {
+          var icons = `https://www.google.com/s2/favicons?sz=64&domain_url=${rCitems.url}`;
+          var urlbases = new URL(rCitems.url);
 
-var itemElTwos = document.createElement('button');
-itemElTwos.title = rCitems.name;
-itemElTwos.id = rCitems.name.replace(/\s/g, '');
-itemElTwos.className = "menu3 i18n draggledsidebar";
-
-itemElTwos.onclick = async e => {
-if(rCitems.url){
-renderer.setDataSideBar(rCitems);
-}
-};
-
-
-
-
-if(rCitems.uisytem){
-itemElTwos.innerHTML = `${rCitems.logo}`.trim();
-if(rCitems.subitem){itemElTwos.className += itemElTwos.className+" subitems"}
-} else {
-var icons = `https://www.google.com/s2/favicons?sz=64&domain_url=${rCitems.url}`;
-var urlbases = new URL(rCitems.url);
-
-itemElTwos.innerHTML = `
+          itemElTwos.innerHTML = `
 <img class="real-iconss" src="${icons}">
 `.trim();
-}
+        }
 
+        if (rCitems.status) {
+          anaIcerikData.appendChild(itemElTwos);
+        }
+      }
+    });
+  </script>
 
-if(rCitems.status){
-anaIcerikData.appendChild(itemElTwos);
-}
+  <script>
+    window.addEventListener("load", async (e) => {
+      document.getElementById("tabs").addEventListener("wheel", (event) => {
+        event.preventDefault();
 
-}
-});
-</script>
-
-<script>
-window.addEventListener('load', async e => {
-document.getElementById("tabs").addEventListener('wheel', (event) => {
-event.preventDefault();
-
-document.getElementById("tabs").scrollBy({
-left: event.deltaY < 0 ? -200 : 200,
-});
-});
-});
-</script>
+        document.getElementById("tabs").scrollBy({
+          left: event.deltaY < 0 ? -200 : 200,
+        });
+      });
+    });
+  </script>
 </html>
