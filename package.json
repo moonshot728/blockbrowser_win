@@ -2,7 +2,7 @@
     "name": "BLOCK",
     "productName": "BLOCK",
     "version": "1.0.1",
-    "description": "BLOCK Web Browser by Mert Çetin for BLOCK BROWSER",
+    "description": "BLOCK Web Browser by Mert Çetin for Me Force",
     "main": "main.js",
     "repository": {
         "type": "git",
@@ -41,10 +41,10 @@
             "version": "25.3.1+wvcus"
         },
         "appx": {
-            "identityName": "0000BLOCKBROWSER.BLOCKBrowser-WEB3",
+            "identityName": "0000MeForce.IFOXBrowser-WEB3",
             "publisher": "CN=xxxx-xxx-xxxx-xxxx-xxxxxxxx",
-            "publisherDisplayName": "BLOCK BROWSER",
-            "applicationId": "BLOCKBrowserWEB3",
+            "publisherDisplayName": "Me Force",
+            "applicationId": "IFOXBrowserWEB3",
             "displayName": "BLOCK Browser - WEB3"
         },
         "win": {
@@ -95,7 +95,7 @@
         "build-win": "electron-builder --win --publish never",
         "build-mac": "electron-builder --mac --publish never"
     },
-    "author": "BLOCK BROWSER",
+    "author": "Me Force",
     "license": "MIT",
     "devDependencies": {
         "electron": "github:castlabs/electron-releases#v25.3.1+wvcus",

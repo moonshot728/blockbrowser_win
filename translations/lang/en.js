@@ -354,7 +354,7 @@
 "Bir Başlangıç Sayfası duvar kağıdı seç": "Choose a Start Page wallpaper",
 "Önceki": "Back",
 "BLOCK tarayıcın hazır.": "BLOCK Browser is ready.",
-"Bir şey daha var! Aria, block ayara gidip daha fazla özeleştirebilirsin.": "You Can Go To Block Browser Setting by clicking the logo button in the top left of the browser to customize it more.",
+"Bir şey daha var! Aria, block ayara gidip daha fazla özeleştirebilirsin.": "You Can Go To Block Browser settings by clicking the logo button in the top left of the browser to customize it more",
 "Gezinmeye başlayın": "Start Browsing",
 "BLOCK Yeniden Başlatın": "BLOCK Restart",
 "Arama Çubuğuna Odaklan": "Focus the Search Bar",
