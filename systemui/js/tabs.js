@@ -827,10 +827,14 @@ Whatsapp this problem has been reported and help is awaited.*/
 
 tabSession.webRequest.onBeforeSendHeaders((details, callback) => {
 
+
+
 if(details.url){
-if(new URL(details.url).hostname == 'web.whatsapp.com'){
-details.requestHeaders['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0";
-}
+    if(new URL(details.url).hostname == 'dexscreener.com'){
+    details.requestHeaders['User-Agent'] = view.webContents.userAgent;
+} 
+} else {
+    details.requestHeaders['User-Agent'] = view.webContents.userAgent;
 }
 
 
