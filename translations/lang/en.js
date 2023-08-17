@@ -99,7 +99,7 @@
 "İndirilen Bir İçerik Yok": "No Downloaded Content",
 "Henüz bir içerik indirilmemiş.": "No content has been downloaded yet.",
 "Eklentiler": "Additions",
-"Uzantılar": "Extensions",
+"Uzantılar": "Uzantılar",
 "Uzantı web sitesi aç": "Open extension website",
 "Tamam": "Okay",
 "İptal": "Cancel",
@@ -340,7 +340,7 @@
 "GPU Donanım hızlandırmayı devre dışı bırak": "Disable GPU Hardware acceleration",
 "Genel Tema Tasarımı": "General Theme Design",
 "BLOCK": "BLOCK",
-"OPERA": "OPERA",
+"BlockTheme2": "BlockTheme2",
 "Yeni Sekme Modu": "New Tab Mode",
 "Varsayılan Yeni Sekme": "Default New Tab",
 "BING Yeni Sekme": "BING New Tab",
@@ -354,7 +354,7 @@
 "Bir Başlangıç Sayfası duvar kağıdı seç": "Choose a Start Page wallpaper",
 "Önceki": "Back",
 "BLOCK tarayıcın hazır.": "BLOCK Browser is ready.",
-"Bir şey daha var! Aria, block ayara gidip daha fazla özeleştirebilirsin.": "You Can Go To Block Browser settings by clicking the logo button in the top left of the browser to customize it more",
+"Bir şey daha var! Aria, block ayara gidip daha fazla özeleştirebilirsin.": "You Can Go To Block Browser settings by clicking the logo button in the top left of the browser to customize it more.",
 "Gezinmeye başlayın": "Start Browsing",
 "BLOCK Yeniden Başlatın": "BLOCK Restart",
 "Arama Çubuğuna Odaklan": "Focus the Search Bar",
@@ -375,5 +375,6 @@
 "Sekmeyi Kapat": "Close Tab",
 "Kapalı Sekmeyi Aç": "Reopen Closed Tab",
 "Hızlı Anahtar": "Quick Key",
-"Sekmeye git": "Go to Tab"
+"Sekmeye git": "Go to Tab",
+"Bu Özellik Bazı Sitelerin Çalışmamasına Neden Olabilir.": "This Feature May Cause Some Sites Not Working."
 }

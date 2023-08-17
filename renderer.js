@@ -19,7 +19,7 @@ let xtopbarHeightLarge = 0;
 let leftopagam = 0;
 
 let opraidus = 0; let opraidusalt = 0;
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 opraidus = -8; opraidusalt = -6
 
 if(!store.get('settings.leftbarmenu')){
@@ -33,7 +33,7 @@ xtopbarHeightLarge = 120;
 xleftbarmenuSize = 40;
 store.set('settings.leftbarmenuSize', xleftbarmenuSize);
 
-if (store.get('settings.generalViews') == "OPERA") {
+if (store.get('settings.generalViews') == "BlockTheme2") {
 xtopbarHeight = 95;
 xtopbarHeightLarge = 130;
 xleftbarmenuSize = 58;
@@ -46,7 +46,7 @@ if (!store.get('settings.home')) {
 store.set('settings.home', false);
 }
 if (!store.get('settings.search_engine')) {
-store.set('settings.search_engine', 'Google');
+store.set('settings.search_engine', 'You');
 }
 if (!store.get('settings.theme')) {
 store.set('settings.theme', 'default');
@@ -62,7 +62,6 @@ store.set('settings.newTabWallpaper', { name: 'Reborn5', username: 'Opera Softwa
 
 if (!store.get('settings.ssCache')) {
 store.set('settings.ss', true);
-store.set("settings.url_bar_search", true);
 store.set('settings.ssCache', true);
 }
 
@@ -107,24 +106,25 @@ store.set('searchEngines', [
 { name: 'Yaani', url: 'https://yaani.com/#q=' },
 { name: 'DuckDuckGo', url: 'https://duckduckgo.com/?t=yaani&q=' },
 { name: 'Startpage', url: 'https://startpage.com/do/metasearch.pl?query=' },
-{ name: 'You', url: 'https://you.com/search?q=' },
+{ name: 'You', url: 'https://you.com/search?q=' }
 ]);
 }
 
-//if (!store.get('blocked')) store.set('blocked', 0);
-store.set('blocked', 0);
-
 if (!store.get('permissions')) store.set('permissions', {});
 if (!store.get('flags')) store.set('flags', [
-'--enable-smooth-scrolling',
-'--dns-prefetch-disable',
-'--no-pings',
+/*
+'--do-not-track',
 '--no-referrers',
+*/
+'--no-pings',
 '--no-crash-upload',
 '--no-default-browser-check',
 '--disable-breakpad',
 '--disable-plugins',
 '--https-only',
+'--enable-smooth-scrolling',
+'--dns-prefetch-disable',
+/*
 '--ppapi-flash-path',
 '--webrtc-internals',
 '--webrtc-capture-multi-channel-audio-processing',
@@ -145,14 +145,15 @@ if (!store.get('flags')) store.set('flags', [
 'enable-features', 
 'WebRTCPipeWireCapturer',
 'enable-gcm',
+*/
 ]);
 
 
 let thmname = store.get('settings.generalViews');
 
-if(thmname == "OPERA"){ 
+if(thmname == "BlockTheme2"){ 
 setTimeout(() => {
-document.body.classList.toggle("opera");
+document.body.classList.toggle("BlockTheme2");
 //if(document.querySelector('link[href="systemui/css/opera.css"]')) document.querySelector('link[href="systemui/css/opera.css"]').remove();
 //if(!document.querySelector('link[href="systemui/css/opera.css"]')) document.head.innerHTML += '<link rel="stylesheet" href="systemui/css/opera.css">';
 }, 10);
@@ -165,7 +166,7 @@ windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
 //if(document.querySelector('link[href="systemui/css/leftbarmenu.css"]')) document.querySelector('link[href="systemui/css/leftbarmenu.css"]').remove();
 //if(!document.querySelector('link[href="systemui/css/leftbarmenu.css"]')) document.head.innerHTML += '<link rel="stylesheet" href="systemui/css/leftbarmenu.css">';
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('menusleftbar').style.display = 'flex';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = (store.get('settings.leftbarmenuSize'))+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -175,7 +176,7 @@ document.getElementsByClassName('ntabsedits')[0].style.paddingLeft = (store.get(
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';   
 }
 } else {
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = '0px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = '12px';
 document.getElementById('bookmarksAlls').style.paddingLeft = '12px';
@@ -203,7 +204,7 @@ setTimeout(()=>{ store.delete('--incognitotab') }, 1200);
 
 if(store.get('settings.newtabmode') == "block"){
 newtabBased = 'new-tab';
-if(thmname == "OPERA"){ 
+if(thmname == "BlockTheme2"){ 
 oppayancar = '-opera';
 }
 }
@@ -461,7 +462,7 @@ app.exit();
 if(name == 'settings.newtabmode'){
 if(store.get('settings.newtabmode') == "block"){
 newtabBased = 'new-tab';
-if(thmname == "OPERA"){ 
+if(thmname == "BlockTheme2"){ 
 oppayancar = '-opera';
 }
 }
@@ -609,11 +610,6 @@ break;
 default:
 }
 });
-
-ipcMain.on(
-'getBlockCount',
-async e => (e.returnValue = tabs.current().webContents.session.ads_blocked)
-);
 
 ipcMain.on(
 'getVersions',
@@ -1001,7 +997,7 @@ document.getElementsByTagName("html")[0].className = themeObj;
 window.theme = themeObj;
 
 if (themeObj == 'default') {
-if(thmname == "OPERA"){ 
+if(thmname == "BlockTheme2"){ 
 if (document.querySelector('head link[href*="systemui/css/themes"]')) document.querySelector('head link[href*="systemui/css/themes"]').remove();
 document.head.innerHTML += '<link rel="stylesheet" href="systemui/css/themes/'+themeObj+'-opera.css">';
 document.getElementsByTagName("html")[0].className = themeObj+'-opera';
@@ -1600,7 +1596,7 @@ btnbulsc.classList.remove('activebtns');
 store.set('settings.leftbarmenuSize', xleftbarmenuSize);
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -1622,7 +1618,7 @@ btnbulsc.classList.add('pinned');
 store.set('settings.leftbarmenuSize', xleftbarmenuSize+xwidht);
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -1639,7 +1635,7 @@ btnbulsc.classList.remove('pinned');
 store.set('settings.leftbarmenuSize', xleftbarmenuSize);
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -1683,7 +1679,7 @@ if(btnbulsc.classList.contains('pinned')){
 store.set('settings.leftbarmenuSize', xleftbarmenuSize)
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -2003,7 +1999,7 @@ if(btnbuls.classList.contains('pinned')){
 store.set('settings.leftbarmenuSize', xleftbarmenuSize+xwidht);
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -2028,7 +2024,7 @@ if(btnbuls.classList.contains('pinned')){
 store.set('settings.leftbarmenuSize', xleftbarmenuSize)
 windowxview = store.get('settings.leftbarmenuSize');
 windowxviewW = -store.get('settings.leftbarmenuSize');
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = store.get('settings.leftbarmenuSize')+'px';
 document.getElementById('bookmarksAlls').style.paddingLeft = store.get('settings.leftbarmenuSize')+'px';
@@ -2425,7 +2421,7 @@ setTimeout(() => {
 loadDatapintabs();
 
 // /* Kaldığın Yerden Devam Et Kapalı İse NewTab Aç*/
-if (store.get('settings.starter') == 1) {
+if (store.get('settings.starter') == 2) {
 if(!store.get('cacheStarterAppsUrl')){
 
 if(!store.get('welcome')){
@@ -2448,7 +2444,7 @@ remote.process.argv[2].startsWith('block')) ? remote.process.argv[2] : 'https://
 }
 
 /* Kaldığın Yerden Devam Et Açıksa Sekmeleri Aç */
-if (store.get('settings.starter') == 2) {
+if (store.get('settings.starter') == 1) {
 if(store.get('cacheStarterAppsUrl')){
 
 
@@ -2595,7 +2591,7 @@ windowxviewW = -store.get('settings.leftbarmenuSize');
 //if(document.querySelector('link[href="systemui/css/leftbarmenu.css"]')) document.querySelector('link[href="systemui/css/leftbarmenu.css"]').remove();
 //if(!document.querySelector('link[href="systemui/css/leftbarmenu.css"]')) document.head.innerHTML += '<link rel="stylesheet" href="systemui/css/leftbarmenu.css">';
 
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('menusleftbar').style.display = 'flex';
 document.getElementById('newopclss').style.marginLeft = (store.get('settings.leftbarmenuSize')-10)+'px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = xleftbarmenuSize+'px';
@@ -2614,7 +2610,7 @@ windowxviewW = -0;
 document.getElementById('menusleftbar').style.display = 'none';
 
 document.getElementById('plugingoreas').style.paddingLeft = '0px';
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 document.getElementById('newopclss').style.marginLeft = '0px';
 document.getElementsByClassName('ntabsedits')[0].style.marginLeft = '12px';
 document.getElementById('bookmarksAlls').style.paddingLeft = '12px';

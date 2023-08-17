@@ -3,7 +3,7 @@ var firstTime = true;
 let { remote, ipcRenderer } = require('electron');
 
 let oppayancar = "";
-if(store.get('settings.generalViews') == "OPERA"){ 
+if(store.get('settings.generalViews') == "BlockTheme2"){ 
 oppayancar = '-opera';
 }
 

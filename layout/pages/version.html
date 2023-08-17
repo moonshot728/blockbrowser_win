@@ -1,7 +1,7 @@
 <html id="t" dir="ltr" lang="tr"><head>
 <meta charset="utf-8">
 <link href="assets://global.css" rel="stylesheet" type="text/css">
-<title id="i18n">Sürüm Hakkında</title>
+<title id="i18n">About the Version</title>
 <style>
 html {
 direction: ltr;
@@ -113,7 +113,7 @@ color: black !important;
 <!-- Version for themes. -->
 <img style="width: 40px;" alt="BLOCK logosu" src="assets://images/icon.png">
 <br><br><div id="company">BLOCK</div>
-<div id="copyright"><i18n>Tüm hakları saklıdır.</i18n></div>
+<div id="copyright"><i18n>All rights reserved.</i18n></div>
 </div>
 
 <table id="inner" cellpadding="0" cellspacing="0" border="0">
@@ -123,7 +123,7 @@ color: black !important;
 <td class="label">BLOCK</td>
 <td style="display: flex;" class="version" id="version">
 <span id="block">NULL</span>
-&nbsp; (<span><i18n>Resmi Derleme</i18n></span>)
+&nbsp; (<span><i18n>Official Compilation</i18n></span>)
 </td>
 </tr>
 
@@ -131,7 +131,7 @@ color: black !important;
 <td class="label">Chrome</td>
 <td style="display: flex;" class="version" id="version">
 <span id="chrome">NULL</span>
-&nbsp; (<span><i18n>Resmi Derleme</i18n></span>)
+&nbsp; (<span><i18n>Official Compilation</i18n></span>)
 </td>
 </tr>
 
@@ -165,7 +165,7 @@ color: black !important;
 <td class="version" id="flash_version">NONE</td>
 </tr>
 
-<tr><td class="label"><i18n>Kullanıcı Aracısı</i18n></td>
+<tr><td class="label"><i18n>User Agent</i18n></td>
 <td class="version" id="user-agent">NULL</td>
 </tr>
 <tr id="variations-section">
@@ -185,8 +185,38 @@ color: black !important;
 
 </tbody>
 </table>
+
+
+
+<div style="margin-top: 30px;">
+    <h2 style="margin-bottom: 10px;">Used Dependencies</h2>
+    <pre> 
+        "devDependencies": {
+            "electron": "<a style="color: blue !important;" target="_blank" href="https://github.com/castlabs/electron-releases/releases/tag/v25.4.0%2Bwvcus">github:castlabs/electron-releases#v25.4.0+wvcus</a>",
+            "electron-builder": "<a style="color: blue !important;" href="https://www.npmjs.com/package/electron-builder">^23.6.0</a>",
+            "electron-devtools-installer": "<a style="color: blue !important;" target="_blank" href="https://www.npmjs.com/package/electron-devtools-installer">^3.2.0</a>"
+           },
+           "dependencies": {
+            "@electron/remote": "<a style="color: blue !important;" target="_blank"  href="https://www.npmjs.com/package/@electron/remote">^2.0.10</a>",
+            "cors": "^2.8.5",
+            "cross-fetch": "^3.0.4",
+            "electron-chrome-extensions": "<a style="color: blue !important;" target="_blank"  href="https://www.npmjs.com/package/electron-chrome-extensions">^3.10.1</a>",
+            "electron-context-menu": "^3.6.1",
+            "electron-store": "^8.1.0",
+            "electron-updater": "^5.3.0",
+            "express": "^4.17.1",
+            "jquery": "^3.5.1",
+            "jszip": "^3.10.1",
+            "npm": "^7.0.12",
+            "readline-sync": "^1.4.10",
+            "sortablejs": "<a style="color: blue !important;" target="_blank"  href="https://github.com/SortableJS/Sortable">^1.10.2</a>",
+            "uuid": "^8.3.1",
+            "v8-compile-cache": "^2.3.0"
+           }
+    </pre>
 </div>
 
+</div>
 
 <script type="text/javascript">
 let theme = sendSync('getTheme');

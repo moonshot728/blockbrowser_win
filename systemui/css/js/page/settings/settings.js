@@ -247,8 +247,8 @@ if(key == "generalViews"){
 var intextkeys = document.getElementById(key+'-text'); 
 if(intextkeys){ 
 var namevalueNew = '';
-if(val == "BLOCK"){ namevalueNew = i18n.__('BLOCK'); }
-if(val == "OPERA"){ namevalueNew = i18n.__('OPERA'); }
+if(val == "BlockTheme1"){ namevalueNew = i18n.__('BlockTheme1'); }
+if(val == "BlockTheme2"){ namevalueNew = i18n.__('BlockTheme2'); }
 intextkeys.innerHTML = namevalueNew;
 } 
 }
@@ -444,9 +444,9 @@ document.getElementById('defaultSoftWare').style.display = 'block';
 if(!data.draft){
 document.getElementById('defaultSoftWare').style.display = 'none'; 
 document.getElementById('GithubsSoftWare').style.display = 'block'; 
-document.getElementById('iblockGen').innerText = sendSync('getVersions').block;
+document.getElementById('ifoxGen').innerText = sendSync('getVersions').block;
 
-document.getElementById('iblockYayiym').innerText = data.name;
+document.getElementById('ifoxYayiym').innerText = data.name;
 if(data.body.trim()){ document.getElementById('dahamasosss').style.display = 'block';  }
 document.getElementById('softhakkinda').innerHTML = data.body.replace(/\n/g, "<br />");
 

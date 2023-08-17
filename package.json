@@ -1,8 +1,8 @@
 {
     "name": "BLOCK",
     "productName": "BLOCK",
-    "version": "1.0.1",
-    "description": "BLOCK Web Browser by Mert Çetin for Me Force",
+    "version": "1.0.2",
+    "description": "BLOCK Web Browser by Mert Çetin for Block Browser",
     "main": "main.js",
     "repository": {
         "type": "git",
@@ -24,10 +24,10 @@
                 "vPrefixedTagName": true,
                 "releaseType": "draft",
                 "publishAutoUpdate": true,
-                "token": "ghp_0000000000000000000000"
+                "token": "ghp_000000000000000000"
             }
         ],
-        "appId": "io.block.cetinmert-win",
+        "appId": "io.appname.block.win",
         "productName": "BLOCK",
         "directories": {
             "buildResources": "build"
@@ -38,13 +38,13 @@
         ],
         "electronDownload": {
             "mirror": "https://github.com/castlabs/electron-releases/releases/download/v",
-            "version": "25.3.1+wvcus"
+            "version": "25.4.0+wvcus"
         },
         "appx": {
             "identityName": "0000MeForce.IFOXBrowser-WEB3",
-            "publisher": "CN=xxxx-xxx-xxxx-xxxx-xxxxxxxx",
-            "publisherDisplayName": "Me Force",
-            "applicationId": "IFOXBrowserWEB3",
+            "publisher": "CN=00000-0000-0000-0000-000000",
+            "publisherDisplayName": "Block Browser",
+            "applicationId": "apppid",
             "displayName": "BLOCK Browser - WEB3"
         },
         "win": {
@@ -91,14 +91,14 @@
     },
     "scripts": {
         "start": "electron .",
-        "build-linux": "electron-builder --linux --publish never",
+        "build-linux": "electron-builder --linux --publish always",
         "build-win": "electron-builder --win --publish never",
-        "build-mac": "electron-builder --mac --publish never"
+        "build-mac": "electron-builder --mac --publish always"
     },
-    "author": "Me Force",
+    "author": "Block Browser <mertcetin.official@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "electron": "github:castlabs/electron-releases#v25.3.1+wvcus",
+        "electron": "github:castlabs/electron-releases#v25.4.0+wvcus",
         "electron-builder": "^23.6.0",
         "electron-devtools-installer": "^3.2.0"
     },

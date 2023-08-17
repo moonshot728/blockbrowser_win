@@ -18,6 +18,8 @@ const { v1 } = require('uuid'); // Şifrele Method 1
 
 var i18n = new(require('./../../translations/i18n-ex'));
 
+var cacheuserAgent = "";
+
 if(store.get('--incognitotab') == '--incognitotab'){
 var newtabBased = 'incognito-new-tab';
 } else {
@@ -25,7 +27,7 @@ var newtabBased = 'new-tab';
 }
 
 let oppayancar = "";
-if(store.get('settings.generalViews') == "OPERA"){ 
+if(store.get('settings.generalViews') == "BlockTheme2"){ 
 oppayancar = '-opera';
 }
 
@@ -41,7 +43,7 @@ windowxviewW = -store.get('settings.leftbarmenuSize');
 }
 
 let opraidus = 0; let opraidusalt = 0;
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 opraidus = -8; opraidusalt = -6
 
 if(!store.get('settings.leftbarmenu')){
@@ -433,21 +435,6 @@ view.webContents.on('did-finish-load', () => {
 });
 
 
-/* eski sürüm
-view.webContents.on('new-window', async (e, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
-e.preventDefault();
-if(disposition){
-if(disposition == 'foreground-tab' || disposition == 'background-tab'){
-this.newView(url);
-//options.webContents.destroy();
-} else {
-if(disposition == 'new-window'){
-}
-}
-}
-});*/
-
-
 view.webContents.setWindowOpenHandler((details) => {
 if (details.disposition === 'new-window') { } 
 else if (details.disposition === 'foreground-tab') {
@@ -529,12 +516,11 @@ view.webContents.on('did-navigate', async (e, url) => { web.didNavigate(url, vie
 view.webContents.on('did-navigate-in-page', async (e, url) => { web.didNavigate(url, view, storage) });
 view.webContents.on('preload-error', async (e, path, err) => { console.error("PRELOAD ERROR", err); });
 
-//bekle
+
 view.webContents.on('login', async (e, path, err) => { console.log('ok'); });
 
-//view.webContents.session.on('before-download', (event, item, webContents) => {});
 view.webContents.session.on('will-download', this.handleDownload);
-//view.webContents.session.on('will-download', async (event, item, webContents) => { willDowloandss(event, item, webContents); });
+
 
 view.webContents.on('certificate-error', async (e, url, err) => {
 e.preventDefault();
@@ -756,6 +742,7 @@ proxyBypassRules: 'localhost'
 }, () => {
 });
 
+store.set('cache-safe-useragent', view.webContents.userAgent);
 
 // We remove electron and application name because the sequence is wrong. The electron definition is not required.
 view.webContents.userAgent = view.webContents.userAgent
@@ -763,6 +750,7 @@ view.webContents.userAgent = view.webContents.userAgent
 .replace(new RegExp(`\\s${remote.app.getName()}/\\S+`), '');
 //I'm converting it to the original without impersonating the UserAgent. It should be in a new browser and the application name and version should be at the end.
 view.webContents.userAgent = view.webContents.userAgent+' '+ remote.app.name+'/'+remote.app.getVersion();
+cacheuserAgent = view.webContents.userAgent;
 
 view.webContents.setZoomFactor(1.0); 
 view.webContents.zoomFactor = 1.0;
@@ -776,76 +764,25 @@ view.setBounds({x:windowxview, y:topbarHeight, width:win.getContentBounds().widt
 
 
 
-
-
-/*
-// consider all urls for integrated authentication. '*googleapis.com, *google.com, *google'
-tabSession.allowNTLMCredentialsForDomains('*');
-
-// HEADER CONFIGURATION
-const filter = { 
-urls: [
-'*://*.google.com/*', 
-'*://*.google.com.tr/*', 
-'*://*.googleapis.com/*',
-'*://*.gstatic.com/*',
-'*://*.spotify.com/*',
-'*://*.scdn.com/*',
-'*://*.cookielaw.org/*',
-'*://*.onetrust.com/*',
-'*://*.google-analytics.com/*'
-] 
-}; 
-
-tabSession.webRequest.onBeforeSendHeaders(filter, (det, callback) => {
-let headers = det.requestHeaders;
-//if(store.get('flags').includes('--no-referrers')) headers['Referer'] = ''; // Omit 'Referer' header when 'no-referrers' flag is enabled
-if(store.get('flags').includes('--do-not-track')) headers['DNT'] = '1'; // Enable DNT for 'do-not-track' flag
-
-headers['Access-Control-Allow-Headers'] = '*';
-headers['Access-Control-Allow-Origin'] = '*';
-headers['Access-Control-Allow-Credentials'] = true;
-headers['Accept-Language'] = store.get('settings.langs')+', tr-TR;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5'; 
-
-
-var url = new URL(det.url); 
-if(url.hostname == 'web.whatsapp.com'){
-headers['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0";
-} 
-
-
-callback({ cancel: false, requestHeaders: headers }); // Don't cancel the request but use these modified headers instead
-});
-*/
-
-
-
 /* It's a temporary solution as whatsapp doesn't accept new browser useragents yet.
 It's not good to impersonate useragent.
 It is set to be valid only on whatsapp.
 Whatsapp this problem has been reported and help is awaited.*/
-
 tabSession.webRequest.onBeforeSendHeaders((details, callback) => {
-
-
+details.requestHeaders['User-Agent'] = view?.webContents?.userAgent ? view.webContents.userAgent : cacheuserAgent;
 
 if(details.url){
-    if(new URL(details.url).hostname == 'dexscreener.com'){
-    details.requestHeaders['User-Agent'] = view.webContents.userAgent;
-} 
-} else {
-    details.requestHeaders['User-Agent'] = view.webContents.userAgent;
+if(new URL(details.url).hostname == 'web.whatsapp.com'){
+details.requestHeaders['User-Agent'] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0";
 }
 
+}
 
-//if (settings.globalPrivacyControl) details.requestHeaders['Sec-GPC'] = '1';
-
-//if(store.get('flags').includes('--no-referrers')) details.requestHeaders['Referer'] = ''; // Omit 'Referer' header when 'no-referrers' flag is enabled
-if(store.get('flags').includes('--do-not-track')) details.requestHeaders['DNT'] = '1'; // Enable DNT for 'do-not-track' flag
+if(store.get('no-referrers')) details.requestHeaders['Referer'] = ''; // Omit 'Referer' header when 'no-referrers' flag is enabled
+if(store.get('do-not-track')) details.requestHeaders['DNT'] = '1'; // Enable DNT for 'do-not-track' flag
 
 callback({ requestHeaders: details.requestHeaders });
 });
-
 
 
 // THIRD-PARTY COOKIE BLOCKING - Geliştirilicek, google.com, google.com.tr oturum açma çerez engelli
@@ -909,13 +846,6 @@ cb(join(__dirname, '../css/', url));
 }
 }, () => {});
 
-
-/*
-tabSession.protocol.registerFileProtocol('view-source', (req, cb) => {
-var url = new URL(req.url); 
-cb(join(__dirname, '../../layout/pages/', 'view-source.html?url='+url));
-}, () => {});
-/*/
 
 
 tabSession.protocol.registerFileProtocol('block', (req, cb) => {

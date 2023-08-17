@@ -429,7 +429,7 @@ const dosya = require('./page/settings/genel'); dosya.getayarlargenel();
 const Store = require('electron-store');
 const store = new Store();
 
-if(store.get('settings.generalViews') == "OPERA"){
+if(store.get('settings.generalViews') == "BlockTheme2"){
 setTimeout(() => {
 //document.head.innerHTML += "<style>html {width: auto !important; overflow: hidden !important; border-radius: 10px !important; contain: content !important; background: #D0DBE3 !important; margin: 5px 5px !important; margin-left: 0px !important; margin-right: 8px !important; margin-top: 2px !important; height: -webkit-fill-available !important;}</style>";
 //document.head.innerHTML += "<style>body {overflow: auto !important; height: inherit !important;}</style>";
