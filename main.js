@@ -64,6 +64,8 @@ store.set('settings.sidebar', [/*
 //{ name: 'spector' },
 { name: 'YouTube Music', url: 'https://music.youtube.com', status: true, widht: 500, uisytem: false  },
 { name: 'Apple Music', url: 'https://music.apple.com/tr/browse', status: true, widht: 500, uisytem: false  },
+{ name: 'OneSignal', url: 'https://documentation.onesignal.com/docs', status: true, widht: 500, uisytem: false  },
+
 ]);
 
 
