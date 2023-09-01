@@ -372,6 +372,11 @@ store.set('vpn-proxy-opend', false);
 mainWindow = null; 
 });
 
+mainWindow.on('close', async (event) => {
+// Pencereyi kapatmayı engellemek için aşağıdaki satırı kullanabilirsiniz
+event.preventDefault();
+app.exit(); app.quit();
+});
 
 
 if(process.argv[1] == '--newtab'){
@@ -534,8 +539,7 @@ app.on('ready', () => {
 //Otomatik Dil Ayarlar // Auto Lang Select
 if (!store.get('settings.langs')) {
 let lanlives = "en";
-// if(app.getLocale() == "tr" || app.getLocale() == "en"){ lanlives = app.getLocale(); }
-// if(isDevMode){lanlives = "en";}
+
 store.set('settings.langs', lanlives);
 }
 store.set('tabslengthOnlys', 0);

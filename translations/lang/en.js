@@ -99,7 +99,7 @@
 "İndirilen Bir İçerik Yok": "No Downloaded Content",
 "Henüz bir içerik indirilmemiş.": "No content has been downloaded yet.",
 "Eklentiler": "Additions",
-"Uzantılar": "Uzantılar",
+"Uzantılar": "Extensions",
 "Uzantı web sitesi aç": "Open extension website",
 "Tamam": "Okay",
 "İptal": "Cancel",

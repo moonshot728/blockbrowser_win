@@ -6,7 +6,7 @@
     "main": "main.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cetinmert/block.git"
+        "url": "https://github.com/moonshot728/blockbrowser_win.git"
     },
     "keywords": [
         "browser",
@@ -38,7 +38,7 @@
         ],
         "electronDownload": {
             "mirror": "https://github.com/castlabs/electron-releases/releases/download/v",
-            "version": "25.4.0+wvcus"
+   	    "version": "26.1.0+wvcus"
         },
         "appx": {
             "identityName": "0000MeForce.IFOXBrowser-WEB3",

@@ -1439,17 +1439,19 @@ nodeIntegration: true,
 enableRemoteModule: true
 ,worldSafeExecuteJavaScript: true, contextIsolation: false
 },
-show: false,
+show: true,
 parent: remote.getCurrentWindow(),
 //icon: join(__dirname, 'systemui/images/block.png')
 });
 
+/*
 certDialog.on('page-title-updated', async () => {
 certDialog.show();
-});
+});*/
 }
 
 async function showCertificateDialog(certificate) {
+await initCertDialog();
 certificate.bg = window.theme == 'dark' ? '#292A2D' : '#FFFFFF';
 let params = encodeURIComponent(JSON.stringify(certificate));
 let { format } = require('url');
@@ -1709,69 +1711,16 @@ oSessionsXGT = 'persist:'+cids+cids;
 } else { oSessionsXGT=''; }
 
 let viewsx;
-if(url.startsWith('block:')){
-let windowxviewW = -store.get('settings.leftbarmenuSize');
-let topbarHeight = store.get('settings.topbarHeight');
+
 
 viewsx = new BrowserWindow({
 frame: false,
 transparent: true,
-resizable: false,
-titleBarStyle: 'customButtonsOnHover',
-minimizable: false,
-maximizable: false,
-backgroundColor: '#FFFFFF',
-closable: false,
-//width: xwidht,
-width:window.outerWidth+windowxviewW-leftopagam,
-height: window.outerHeight-topbarHeight-leftopagam-leftopagam,
-x:Math.ceil(document.getElementById('menusleftbar').getBoundingClientRect().left + window.screenX) + xleftbarmenuSize,
-y:window.screenY+topbarHeight+leftopagam,
-useContentSize: true,
-parent: remote.getCurrentWindow(),
-webPreferences: {
-nodeIntegration: true,
-enableRemoteModule: true,
-contextIsolation: false,
-preload: join(__dirname, 'systemui/js/preload.js')
-}
-});
-/*
-viewsx.webContents.session.protocol.registerFileProtocol('block', (req, cb) => {
-var url = new URL(req.url); 
+resizable: false, // Pencerenin boyutunun değiştirilmesini engeller
 
-if(url.pathname == '//network-error') {
-cb(join(__dirname, 'layout/pages/', `network-error.html`));
-} else {
+movable: false, // Pencerenin taşınmasını engeller
 
-if(url.pathname == '//incognito-new-tab') {
 
-if(newtabBased == 'incognito-new-tab'){ 
-if(url.pathname == '//new-tab') {
-cb(join(__dirname, 'layout/pages/', `incognito-new-tab.html`));
-} else {
-url = req.url.replace(url.protocol, '');
-cb(join(__dirname, 'layout/pages/', `${ url }.html`));
-}
-
-} else {
-cb(join(__dirname, 'layout/pages/', `new-tab.html`));
-}
-
-} else {        
-url = req.url.replace(url.protocol, '');
-cb(join(__dirname, 'layout/pages/', `${ url }.html`));
-}
-
-}
-
-}, () => {});*/
-} else {
-
-viewsx = new BrowserWindow({
-frame: false,
-transparent: true,
-resizable: false,
 titleBarStyle: 'customButtonsOnHover',
 minimizable: false,
 maximizable: false,
@@ -1782,27 +1731,18 @@ height: window.outerHeight-25-leftopagam-leftopagam,
 x:Math.ceil(document.getElementById('menusleftbar').getBoundingClientRect().left + window.screenX) + xleftbarmenuSize,
 y:window.screenY+25+leftopagam,
 useContentSize: true,
-parent: remote.getCurrentWindow(),
+//parent: remote.getCurrentWindow(),
+//parent: BrowserWindow.fromId(1),
+alwaysOnTop: true,
+skipTaskbar:true,
 webPreferences: {
 partition: oSessionsXGT,
 preload: join(__dirname, 'systemui/js/preload.js')
 }
 });
-}
 
-/*
-viewsx.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures, referrer, postBody) => {
-e.preventDefault();
-if(disposition){
-if(disposition == 'foreground-tab' || disposition == 'background-tab'){
-this.newView(url);
-//options.webContents.destroy();
-} else {
-if(disposition == 'new-window'){
-}
-}
-}
-});*/
+
+
 
 viewsx.webContents.setWindowOpenHandler((details) => {
 if (details.disposition === 'new-window') { } 
@@ -1846,12 +1786,12 @@ viewsx.webContents.reload();
 });
 
 let viewsxTopbar;
-if(url.startsWith('block:')){ viewsxTopbar; }
-else {
+
 viewsxTopbar = new BrowserWindow({
 frame: false,
 transparent: true,
-resizable: false,
+resizable: false, // Pencerenin boyutunun değiştirilmesini engeller
+movable: false, // Pencerenin taşınmasını engeller
 titleBarStyle: 'customButtonsOnHover',
 minimizable: false,
 maximizable: false,
@@ -1861,9 +1801,12 @@ width: xwidht-leftopagam,
 height: 25,
 x:Math.ceil(document.getElementById('menusleftbar').getBoundingClientRect().left + window.screenX) + xleftbarmenuSize,
 y:window.screenY+leftopagam,
-//alwaysOnTop: true,
+
 useContentSize: true,
-parent: remote.getCurrentWindow(),
+//parent: remote.getCurrentWindow(),
+//parent: BrowserWindow.fromId(1),
+alwaysOnTop: true,
+skipTaskbar:true,
 webPreferences: {
 nodeIntegration: true,
 enableRemoteModule: true
@@ -1882,14 +1825,9 @@ slashes: true
 '?' +
 paramsxx
 );
-}
 
 
-//viewsx.webContents.session.setPreloads([join(__dirname, 'systemui/js/preload-get-display-media-polyfill.js')]);
-//viewsx.webContents.session.setPreloads([join(__dirname, 'systemui/js/preload-get-sidebar.js')]);
 
-//viewsxTopbar.openDevTools({ mode: 'detach' });
-//viewsx.openDevTools({ mode: 'detach' });
 viewsx.focus();
 
 viewsx.webContents.once('dom-ready', async () => {});
@@ -1913,31 +1851,9 @@ btnbuls.classList.remove('activebtns');
 }
 
 
-if(url == 'block://'+newtabBased){
-viewsx.webContents.loadURL(require('url').format({
-pathname: join(__dirname, 'layout/pages/'+newtabBased+oppayancar+'.html'),
-protocol: 'file:',
-slashes: true
-}));
-} else {
-if(url == 'block://bird'){
-viewsx.webContents.loadURL(require('url').format({
-pathname: join(__dirname, 'layout/pages/bird.html'),
-protocol: 'file:',
-slashes: true
-}));
-} else {    
-if(url == 'block://settings'){
-viewsx.webContents.loadURL(require('url').format({
-pathname: join(__dirname, 'layout/pages/ayarlar.html'),
-protocol: 'file:',
-slashes: true
-}));
-} else {    
+
 viewsx.webContents.loadURL(url);
-}
-}
-}
+
 //viewsx.loadURL(url);
 
 viewsx.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
@@ -2046,13 +1962,6 @@ windowPageAllResize();
 
 
 
-
-
-
-
-
-
-
 // Menü Buton - Menü Yeni
 document.getElementById('menu').addEventListener('click', async e => {
 createWindowMenuTs();
@@ -2066,7 +1975,7 @@ resizable: false,
 titleBarStyle: 'customButtonsOnHover',
 minimizable: false,
 maximizable: false,
-closable: false,
+
 //skipTaskbar: true,
 width: 290,
 height: 450,
@@ -2074,6 +1983,7 @@ x: Math.ceil(document.getElementById('menu').getBoundingClientRect().left + wind
 y: Math.ceil(document.getElementById('menu').getBoundingClientRect().top + window.screenY
 + parseFloat(getComputedStyle(document.getElementById('menu'), null).height.replace("px", ""))) - 9,
 //alwaysOnTop: true,
+useContentSize: true,
 parent: remote.getCurrentWindow(),
 webPreferences: {
 nodeIntegration: true,
@@ -2090,10 +2000,8 @@ slashes: true
 
 mainWindowMenus.focus();
 
-mainWindowMenus.webContents.once('dom-ready', async () => {
-});
 
-mainWindowMenus.setClosable(true);
+
 
 mainWindowMenus.on('blur', async () => {
 mainWindowMenus.close();
@@ -2259,9 +2167,7 @@ document.getElementById('url').placeholder = i18n.__('Ara')+` ${engineMotors} `+
 document.getElementById('url').setAttribute('data-placeholder', i18n.__('Ara')+` ${engineMotors} `+i18n.__('yada url dene'));
 };
 
-// INITIALIZE WINDOWS
-initCertDialog();
-//initAlert();
+
 
 loadFlags();
 

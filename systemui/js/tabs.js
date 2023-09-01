@@ -212,7 +212,7 @@ height: topbasrhe,
 x: Math.ceil(window.screenX),
 y: Math.ceil(window.screenY + win.getContentBounds().height - topbasrhe),
 parent: remote.getCurrentWindow(),
-show: false,
+show: true,
 hasShadow: false,
 webPreferences: {
 nodeIntegration: true,
@@ -264,7 +264,7 @@ this.current().webContents.loadURL(join(__dirname, '..', 'static', 'pdf', 'index
 var savePath;
 
 if(!this.downloadWindowShows){
-if (store.get('settings.dowloadnAltPencere')) { downloadWindow.show(); }
+if (store.get('settings.dowloadnAltPencere')) { /*downloadWindow.show();*/ this.initDownloads(); }
 this.downloadWindowShows = true;
 }
 
@@ -1249,9 +1249,6 @@ event.preventDefault();
 callback(true);
 });
 
-setTimeout(() => {
-this.initDownloads();
-}, 2500);
 
 
 function makeid(length) {
