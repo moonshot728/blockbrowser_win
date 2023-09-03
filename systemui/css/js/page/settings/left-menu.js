@@ -8,24 +8,24 @@ leftMenu.innerHTML = `
 Ayarlar
 </div>
 
-<div id="gecmis" title="Geçmiş" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://history')">
+<div id="gecmis" title="Past" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://history')">
 <div class="sc-lt5gah heosCI" style="background-image: url(assets://images/settings/history.svg);"></div>
-Geçmiş
+Past
 </div>
 
-<div id="kaydedilenler" title="Kaydedilenler" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://bookmarks')">
+<div id="kaydedilenler" title="Saved" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://bookmarks')">
 <div class="sc-lt5gah heosCI" style="background-image: url(assets://images/settings/bookmark.svg);"></div>
-Kaydedilenler
+Saved
 </div>
 
-<div id="indirilenler" title="İndirilenler" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://downloads')">
+<div id="indirilenler" title="Downloads" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://downloads')">
 <div class="sc-lt5gah heosCI" style="background-image: url(assets://images/settings/download.svg);"></div>
-İndirilenler
+Downloads
 </div>
 
-<div id="eklentiler" title="Eklentiler" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://extensions')">
+<div id="eklentiler" title="Additions" class="sc-1klqouq bECQfp i18n" onclick="openLoadURLMenu('block://extensions')">
 <div class="sc-lt5gah heosCI" style="background-image: url(assets://images/settings/extension.svg);"></div>
-Eklentiler
+Additions
 </div>
 
 </div>
@@ -37,7 +37,7 @@ Eklentiler
 async function openLoadURLMenu (urls) { window.location.href = urls; }
 
 function openLoadURLMenuX(url){
-alert(`Bu bölüm yapım aşamasında. 
-Yeni güncelleme ile en kısa sürede aktif olacaktır.
+alert(`This section is under construction.
+It will be active as soon as possible with the new update.
 `);
 }

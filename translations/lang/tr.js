@@ -87,7 +87,7 @@
 "Tarama verilerinin hepsi silinsinmi ?": "Delete all browsing data?",
 "Kaydedilen Bir Sayfa Yok": "No Saved Pages",
 "Henüz bir sayfa kaydedilmemiş.": "No page has been saved yet.",
-"Kaydedilenler": "Saved",
+"Saved": "Saved",
 "Tüm kaydedilen verilerin hepsi silinsin mi ?": "Delete all recorded data?",
 "Bekliyor": "Waiting",
 "Tamamlandı": "Completed",
