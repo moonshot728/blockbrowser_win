@@ -391,7 +391,7 @@ el.style.display = 'block';
 
 
 });
-}
+
 
 
 
@@ -463,4 +463,7 @@ document.getElementsByClassName("b_logo")[0].innerHTML = '<style>.b_logo{width: 
 }
 }
 }
+}
+
+
 }

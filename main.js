@@ -56,6 +56,8 @@ store.set('settings.sidebar', [/*
 { name: 'Discord', url: 'https://discord.com/app', status: true, widht: 1024, uisytem: false  },
 { name: 'Twitter', url: 'https://x.com/blockbrowser', status: true, widht: 550, uisytem: false  },
 { name: 'Zerion', url: 'https://app.zerion.io/tokens/ETH-eth', status: true, widht: 550, uisytem: false  },
+{ name: 'Opensea', url: 'https://opensea.io ', status: true, widht: 550, uisytem: false  },
+{ name: 'Marketciphertrading', url: 'https://marketciphertrading.com?ref=54922', status: true, widht: 550, uisytem: false  },
 { name: 'Twitch', url: 'https://www.twitch.tv', status: true, widht: 590, uisytem: false  },
 { name: 'Uniswap', url: 'https://app.uniswap.org/#/swap', status: true, widht: 550, uisytem: false },
 // { name: 'Arkham intelligence', url: 'https://www.arkhamintelligence.com/', status: true, widht: 550, uisytem: false },
@@ -276,7 +278,9 @@ return window;
 
 }
 } else {
+setTimeout(() => {
 mainWindow.webContents.executeJavaScript('document.getElementsByTagName("browser-action-list")[0].shadowRoot.getElementById("nkbihfbeogaeaoehlefnkodbefgpgknn").click();');
+}, 50);
 }
 
 }
@@ -508,6 +512,7 @@ event.preventDefault();
 //Tüm pencereler kapatıldığında çıkın.
 //Quit when all windows are closed.
 app.on('window-all-closed', async () => {
+
 // On OS X it is common for applications and their menu bar
 // to stay active until the user quits explicitly with Cmd + Q
 if (process.platform !== 'darwin') {
@@ -539,7 +544,8 @@ app.on('ready', () => {
 //Otomatik Dil Ayarlar // Auto Lang Select
 if (!store.get('settings.langs')) {
 let lanlives = "en";
-
+if(app.getLocale() == "tr" || app.getLocale() == "en"){ lanlives = app.getLocale(); }
+if(isDevMode){lanlives = "en";}
 store.set('settings.langs', lanlives);
 }
 store.set('tabslengthOnlys', 0);

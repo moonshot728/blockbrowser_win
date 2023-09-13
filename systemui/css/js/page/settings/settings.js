@@ -285,7 +285,10 @@ if(intextkeys){
 var namevalueNew = val;
 if(val == "tr"){ namevalueNew = 'Turkish'; }
 if(val == "en"){ namevalueNew = 'English'; }
-
+if(val == "ru"){ namevalueNew = 'Russian'; }
+if(val == "de"){ namevalueNew = 'German'; }
+if(val == "es"){ namevalueNew = 'Spanish'; }
+if(val == "fr"){ namevalueNew = 'French'; }
 intextkeys.innerHTML = namevalueNew;
 } 
 }
@@ -359,7 +362,12 @@ loadDataFlags('flags','flags-text');
 
 function clangto(op){
 var namevalueNew = op;
+if(op == "tr"){ namevalueNew = 'Turkish'; }
 if(op == "en"){ namevalueNew = 'English'; }
+if(op == "ru"){ namevalueNew = 'Russian'; }
+if(op == "de"){ namevalueNew = 'German'; }
+if(op == "es"){ namevalueNew = 'Spanish'; }
+if(op == "fr"){ namevalueNew = 'French'; }
 return namevalueNew;
 }
 

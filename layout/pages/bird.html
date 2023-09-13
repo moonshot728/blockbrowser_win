@@ -658,10 +658,10 @@ setTimeout(() => {
 window.location.reload();
 }, 300);
 } else {
-alert('Username and Name cannot be left blank!');
+alert(i18n.__('Kullanıcı Adı ve İsim Boş Bırakılamaz!'));
 }
 } else {
-alert('Username Must Have At Least 3 Characters!');
+alert(i18n.__('Kullanıcı Adı En Az 3 Karakter Olmalı!'));
 }
 
 
@@ -703,12 +703,12 @@ btnyarats.innerHTML = `<img style="width: 20px;height: 20px;text-align: center;a
 
 webRtcConnet(this.dataUserXs, '#room-id:'+createrommid.value, 'open', '', '', '', '');
 
-} else {alert('Passwords did not match!');}
+} else {alert('Şifreler eşleşmedi !');}
 } else {
-alert('Room name, picture and id cannot be left blank!');
+alert('Oda adı, resmi ve ıd boş bırakılamaz!');
 }
 
-} else { alert('This room has already been opened!'); }
+} else { alert('Bu oda zaten açılmış!'); }
 }, 350);
 }
 
@@ -1455,17 +1455,17 @@ this.connection.join(roomid, function(isRoomJoined, roomid, error) {
 /*if(error) {alert(error);}*/
 if (error) {
 if (error === 'Invalid password') {
-var xpassword = prompt('Enter Room Password');
+var xpassword = prompt(i18n.__('Oda Şifrsini Girin'));
 if (!xpassword || !xpassword.length) {
-alert('Password Required!');
-btnkatils.innerHTML = 'Join'
+alert(i18n.__('Şifre Gerekli!'));
+btnkatils.innerHTML = i18n.__('Katıl');
 btnkatils.disabled = false;
 return;
 } 
 if(sha1(xpassword) == extra.password){
 this.connection.password = sha1(xpassword);
 this.connection.join(roomid);
-
+/*alert('Successfully joined the room.');*/
 odakurs.style.display = "none";
 chatsconnect.style.display = "";
 callsconnect.style.display = "";

@@ -269,6 +269,7 @@ console.colorLog = (msg, color) => { console.log('%c' + msg, 'color:' + color + 
 const { version } = require('./package.json');
 const { param } = require('jquery');
 const { send } = require('process');
+const { isSet } = require('util/types');
 
 exports.getTabCount = async () => tabs.tabs.length;
 exports.getTabCountCacheNum = function () { store.set('tabslengthOnlys', tabs.tabs.length) }
@@ -1380,19 +1381,19 @@ store.set('permissions', perms);
 
 async function cookies(contents, site) {
 contents = contents || tabs.current().webContents;
-site = site || contents.getURL();
+site = site || contents?.getURL();
 return contents.session.cookies.get({ url: site });
 }
 
 async function handlePermission(webContents, permission, callback, details) {
-if (details.mediaTypes) {
-}
+if (details.mediaTypes) {}
 if (permission == 'geolocation') permission = 'location';
 if (permission == 'midiSysex') permission = 'midi';
 
 let allowedPerms = ['fullscreen', 'pointerLock'];
 if (!allowedPerms.includes(permission)) {
-let url = new URL(webContents.getURL())?.hostname;
+
+let url = new URL(webContents?.getURL())?.hostname;
 
 let perms = store.get('permissions');
 
@@ -1701,7 +1702,6 @@ store.set('cache_viewsx_keyid', keyid);
 
 var btnbuls = document.getElementById(keyid);
 
-
 if(!cache_viewsx){
 
 var oSessionsXGT;
@@ -1711,16 +1711,11 @@ oSessionsXGT = 'persist:'+cids+cids;
 } else { oSessionsXGT=''; }
 
 let viewsx;
-
-
 viewsx = new BrowserWindow({
 frame: false,
 transparent: true,
 resizable: false, // Pencerenin boyutunun değiştirilmesini engeller
-
 movable: false, // Pencerenin taşınmasını engeller
-
-
 titleBarStyle: 'customButtonsOnHover',
 minimizable: false,
 maximizable: false,
@@ -1740,8 +1735,6 @@ partition: oSessionsXGT,
 preload: join(__dirname, 'systemui/js/preload.js')
 }
 });
-
-
 
 
 viewsx.webContents.setWindowOpenHandler((details) => {
@@ -1786,7 +1779,6 @@ viewsx.webContents.reload();
 });
 
 let viewsxTopbar;
-
 viewsxTopbar = new BrowserWindow({
 frame: false,
 transparent: true,
@@ -1801,7 +1793,6 @@ width: xwidht-leftopagam,
 height: 25,
 x:Math.ceil(document.getElementById('menusleftbar').getBoundingClientRect().left + window.screenX) + xleftbarmenuSize,
 y:window.screenY+leftopagam,
-
 useContentSize: true,
 //parent: remote.getCurrentWindow(),
 //parent: BrowserWindow.fromId(1),
@@ -1827,7 +1818,8 @@ paramsxx
 );
 
 
-
+//viewsxTopbar.openDevTools({ mode: 'detach' });
+//viewsx.openDevTools({ mode: 'detach' });
 viewsx.focus();
 
 viewsx.webContents.once('dom-ready', async () => {});
@@ -1853,7 +1845,6 @@ btnbuls.classList.remove('activebtns');
 
 
 viewsx.webContents.loadURL(url);
-
 //viewsx.loadURL(url);
 
 viewsx.webContents.session.webRequest.onBeforeSendHeaders((details, callback) => {
@@ -1975,7 +1966,7 @@ resizable: false,
 titleBarStyle: 'customButtonsOnHover',
 minimizable: false,
 maximizable: false,
-
+//closable: false,
 //skipTaskbar: true,
 width: 290,
 height: 450,
@@ -1999,9 +1990,7 @@ slashes: true
 });
 
 mainWindowMenus.focus();
-
-
-
+//mainWindowMenus.setClosable(true);
 
 mainWindowMenus.on('blur', async () => {
 mainWindowMenus.close();
@@ -2167,7 +2156,9 @@ document.getElementById('url').placeholder = i18n.__('Ara')+` ${engineMotors} `+
 document.getElementById('url').setAttribute('data-placeholder', i18n.__('Ara')+` ${engineMotors} `+i18n.__('yada url dene'));
 };
 
-
+// INITIALIZE WINDOWS
+//initCertDialog();
+//initAlert();
 
 loadFlags();
 
@@ -2237,10 +2228,13 @@ y:window.screenY,
 } 
 }
 
+
 });
 
 win.on("move", () => { 
 if(!win.isMinimized()) {}
+
+
 for (item of sidebartabs) {
 if(item.id == store.get('cache_viewsx_keyid')){
 let xcache_viewsx = item.viewsx;
@@ -2266,8 +2260,6 @@ y:window.screenY+25,
 });
 }
 
-
-
 if(xcache_viewsxTopbar){
 xcache_viewsxTopbar?.setBounds({
 //width: xwidht,
@@ -2282,6 +2274,9 @@ y:window.screenY,
 
 } 
 }
+
+
+
 });
 
 
@@ -2385,7 +2380,24 @@ tabs.newView(locUrlSafes.origin);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', async () => {
+
 closedAppWindowExit();
+/*
+BrowserWindow.getAllWindows().forEach(window => {
+window.close();  window.destroy();
+});
+*/
+
+/*
+for (item of sidebartabs) {
+let xcache_viewsx = item.viewsx;
+let xcache_viewsxTopbar = item?.viewsxTopbar;
+xcache_viewsx.destroy();
+xcache_viewsxTopbar.destroy()
+}
+
+app.quit(); app.exit();
+*/
 });
 
 async function closedAppWindowExit() {
@@ -2552,7 +2564,6 @@ ntabs.setBounds({x:windowxview, y:topbarHeight, width:win.getContentBounds().wid
 win.on('resize', () => {
 ntabs.setBounds({x:windowxview, y:topbarHeight, width:win.getContentBounds().width+windowxviewW+opraidus, height:win.getContentBounds().height - topbarHeight+opraidus });
 });
-
 }
 }
 

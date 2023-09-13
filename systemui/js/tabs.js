@@ -354,8 +354,15 @@ if (store.get('settings.dowloadnAltPencere')) { downloadWindow.webContents.send(
 return;
 }
 
+let win = remote.getCurrentWindow();
+//let ses = win.webContents.session;
+
 await extractZip(crxInfo.zip, path);
-const extension = await session.defaultSession.loadExtension(path);
+
+await setTimeout(() => {
+let sadas = session.defaultSession.loadExtension(path);
+}, 1000);
+//const extension = await session.defaultSession.loadExtension(path);
 
 if (crxInfo.publicKey) {
 const manifest = JSON.parse(
@@ -364,7 +371,7 @@ await promises.readFile(manifestPath, 'utf8'),
 
 manifest.key = crxInfo.publicKey.toString('base64');
 manifest.idkey = crxInfo.id;
-manifest.idkeyprimary = extension.id;
+//manifest.idkeyprimary = extension.id;
 
 await promises.writeFile(
 manifestPath,
@@ -373,8 +380,12 @@ JSON.stringify(manifest, null, 2),
 }
 
 //window.send('load-browserAction', extension);
+setTimeout(() => { 
 if (store.get('settings.dowloadnAltPencere')) { downloadWindow.webContents.send('CompleteInstallCRX', id, savePath); }
-setTimeout(() => { ipcRenderer.send('loadextaks', cachetabid, path); }, 650);
+//ipcRenderer.send('loadextaks', cachetabid, path); 
+win.extensions.addTab(cachetabview.webContents, win);
+win.extensions.selectTab(cachetabview.webContents);
+}, 1200);
 }
 /* CRX Install END */
 
@@ -573,7 +584,7 @@ cachetabview = view;
 let win = remote.getCurrentWindow();
 win.setBrowserView(view);
 
-//win.extensions.selectTab(view.webContents);
+win.extensions.selectTab(view.webContents);
 //ipcRenderer.send('addTabselectTab', 'selectTab', view.webContents.id);
 
 
@@ -1249,6 +1260,10 @@ event.preventDefault();
 callback(true);
 });
 
+/*
+setTimeout(() => {
+this.initDownloads();
+}, 2500);*/
 
 
 function makeid(length) {
