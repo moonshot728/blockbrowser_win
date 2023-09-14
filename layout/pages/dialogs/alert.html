@@ -78,8 +78,8 @@ width: 92%;
 </head>
 <body>
 <main>
-<p id="url">www.block.com bekliyor</h2>
-<p id="message">işlem devam ediyor</p>
+<p id="url">www.block.com waiting</h2>
+<p id="message">transaction continues</p>
 <button id="ok-btn" type="button" autofocus>Okay</button>
 </main>
 </body>
@@ -93,8 +93,8 @@ ipcRenderer.on('load', (e, alertInfo) => {
 let url;
 
 document.body.innerHTML = `<main>
-<p id="url">www.block.com bekliyor</h2>
-<p id="message">işlem devam ediyor</p>
+<p id="url">www.block.com waiting</h2>
+<p id="message">transaction continues</p>
 <button id="ok-btn" type="button" autofocus>${ i18n.__('Tamam') }</button>
 </main>`;
 

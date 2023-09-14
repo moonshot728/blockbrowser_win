@@ -55,10 +55,9 @@ if (!store.get('settings.newTab')) {
 store.set('settings.newTab', { items: ['https://www.instagram.com', 'https://www.google.com', 'https://youtube.com', 'https://facebook.com', 'https://netflix.com', 'https://twitter.com', 'https://aliexpress.com', 'https://bing.com', 'https://amazon.com', '', '', ''] });
 }
 
-if (!store.get('settings.newTabWallpaper')) {
-store.set('settings.newTabWallpaper', { name: 'Reborn5', username: 'Opera Software',html: 'https://addons.opera.com/tr/wallpapers/details/reborn5/',  backgroundTheme: 'assets://images/newtab/opera.jpg' });
-//store.set('settings.newTabWallpaper', { name: 'Pawel Czerwinski', username: 'Unsplash',html: 'https://unsplash.com/photos/7FqOISWr5V0', backgroundTheme: 'https://images.unsplash.com/photo-1637611331620-51149c7ceb94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=90' });
-}
+// if (!store.get('settings.newTabWallpaper')) {
+// store.set('settings.newTabWallpaper', { name: 'Reborn5', username: 'Opera Software',html: 'https://addons.opera.com/tr/wallpapers/details/reborn5/',  backgroundTheme: 'assets://images/newtab/opera.jpg' });
+// }
 
 if (!store.get('settings.ssCache')) {
 store.set('settings.ss', true);
