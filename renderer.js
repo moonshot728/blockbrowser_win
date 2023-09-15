@@ -68,7 +68,7 @@ if (!store.get('settings.headerView')) {
 store.set('settings.headerView', 'compact');
 }
 if (!store.get('settings.starter')) {
-store.set('settings.starter', '2');
+store.set('settings.starter', '1');
 }
 if (!store.get('settings.topbarHeight')) {
 store.set('settings.topbarHeight', xtopbarHeight);
