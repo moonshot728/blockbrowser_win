@@ -105,7 +105,7 @@ store.set('searchEngines', [
 { name: 'Yaani', url: 'https://yaani.com/#q=' },
 { name: 'DuckDuckGo', url: 'https://duckduckgo.com/?t=yaani&q=' },
 { name: 'Startpage', url: 'https://startpage.com/do/metasearch.pl?query=' },
-{ name: 'You', url: 'https://you.com/search?q=' }
+{ name: '0xsearch', url: 'https://0xsearch.com/search?q=' }
 ]);
 }
 
